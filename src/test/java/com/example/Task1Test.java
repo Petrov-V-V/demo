@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class Task1Test {
     @Test
-    public void wwwwwww(){
+    public void shouldAnswerWithTrue(){
         First first = mock(First.class);
         when(first.returnTrue()).thenReturn(true);
         Second second = mock(Second.class);
