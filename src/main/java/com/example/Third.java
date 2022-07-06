@@ -1,12 +1,20 @@
 package com.example;
 
 public class Third {
+    private First first;
+    private Second second;
+
+    public Third() {
+        this.first = new First();
+        this.second = new Second();
+    }
+
     public static boolean returnTrue(){
         return true;
     }
 
-    public static boolean isSeveralTrueReturned(){
-        if (First.returnTrue() && Second.returnTrue() && returnTrue())
+    public boolean isSeveralTrueReturned(){
+        if (first.returnTrue() && second.returnTrue() && returnTrue())
             return true;
         return false;
     }

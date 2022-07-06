@@ -14,6 +14,8 @@ public class Task4Test {
             method.setAccessible(true);
             assertFalse((boolean)method.invoke(third));
         }
-        catch (Exception e) {}
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

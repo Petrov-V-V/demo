@@ -8,7 +8,7 @@ import org.junit.Test;
 public class Task3Test {
     @Test(expected = InterruptedIOException.class)
     public void wasExceptionsThrown() throws InterruptedIOException{
-        First first = mock(First.class);
+        First first = new First();
         when(first.throwException()).thenThrow(new InterruptedIOException());
         first.throwException();
     }
