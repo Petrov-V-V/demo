@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class Task2Test {
     @Test
-    public void howManyTimesWasCalled(){
+    public void howManyTimesWasCalled() {
         Second second = spy(Second.class);
         for (int i = 0; i < 3; i++) {
             second.callOtherClassesMethods();
