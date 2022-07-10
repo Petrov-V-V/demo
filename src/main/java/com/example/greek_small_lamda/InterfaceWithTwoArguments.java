@@ -1,4 +1,4 @@
-package com.example.greek_small_letter_lamda;
+package com.example.greek_small_lamda;
 
 @FunctionalInterface
 public interface InterfaceWithTwoArguments {

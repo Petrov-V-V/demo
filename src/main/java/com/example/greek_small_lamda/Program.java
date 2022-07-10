@@ -1,4 +1,4 @@
-package com.example.greek_small_letter_lamda;
+package com.example.greek_small_lamda;
 
 public class Program {
     public static char printChar(InterfaceWithZeroArguments c) {
