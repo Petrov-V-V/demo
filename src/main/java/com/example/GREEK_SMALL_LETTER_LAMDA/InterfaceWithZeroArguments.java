@@ -1,6 +1,6 @@
-package com.example.GREEK_SMALL_LETTER_LAMDA;
+package com.example.greek_small_letter_lamda;
 
 @FunctionalInterface
 public interface InterfaceWithZeroArguments {
-    public char charFunc();
+    char charFunc();
 }

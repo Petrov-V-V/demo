@@ -1,4 +1,4 @@
-package com.example.GREEK_SMALL_LETTER_LAMDA;
+package com.example.greek_small_letter_lamda;
 
 public class Program {
     public static char printChar(InterfaceWithZeroArguments c) {
@@ -12,10 +12,15 @@ public class Program {
 	public static int printSum(InterfaceWithTwoArguments i) {
 		return i.intFunc(Integer.MIN_VALUE, Integer.MAX_VALUE);
 	}
-    
+
 	public static void main(String[] args) {
 		System.out.println(printChar(() -> 'b'));
-        System.out.println(printDouble((d) -> d));
-		System.out.println(printSum((i1, i2) -> i1 + i2));
+		System.out.println(printDouble(d -> d));
+		System.out.println(printSum(new InterfaceWithTwoArguments(){
+			@Override
+			public int intFunc(int a, int b){
+				return a + b;
+			}
+		}));
 	}
 }
