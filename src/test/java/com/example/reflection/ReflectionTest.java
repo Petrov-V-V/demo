@@ -27,8 +27,8 @@ public class ReflectionTest {
         method.setAccessible(true);
         System.out.println(method.invoke(object));
 
-        for (Method m : object.getClass().getSuperclass().getDeclaredMethods()) {
-            System.out.println("Declared Method " + m.getName());
+        for (Method m : object.getClass().getSuperclass().getMethods()) {
+            System.out.println("Method " + m.getName());
         }
 
         Class[] exceptions = method.getExceptionTypes();
