@@ -18,9 +18,9 @@ public class LambdaTest {
 
 	@Test
 	public void getSumTest() {
-		assertEquals(-1, Program.printSum(new InterfaceWithTwoArguments(){
+		assertEquals(-1, Program.printSum(new InterfaceWithTwoArguments() {
 			@Override
-			public int intFunc(int a, int b){
+			public int intFunc(int a, int b) {
 				return a + b;
 			}
 		}));
