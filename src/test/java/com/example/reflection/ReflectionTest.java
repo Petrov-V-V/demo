@@ -1,7 +1,6 @@
 package com.example.reflection;
 
 import java.lang.reflect.*;
-import java.util.Arrays;
 
 import org.junit.Test;
 
@@ -11,8 +10,8 @@ public class ReflectionTest {
         ReflectionClass object = new ReflectionClass();
         Field privateField = object.getClass().getDeclaredField("privateField");
         privateField.setAccessible(true);
-        privateField.set(object, 3);
-        System.out.println((int) privateField.get(object));
+        privateField.setInt(object, 3);
+        System.out.println(privateField.getInt(object));
 
         Field publicField = object.getClass().getDeclaredField("publicField");
         System.out.println(publicField.getName());
@@ -28,7 +27,7 @@ public class ReflectionTest {
         method.setAccessible(true);
         System.out.println(method.invoke(object));
 
-        for (Method m : object.getClass().getDeclaredMethods()) {
+        for (Method m : object.getClass().getSuperclass().getDeclaredMethods()) {
             System.out.println("Declared Method " + m.getName());
         }
 
