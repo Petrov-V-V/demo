@@ -18,4 +18,8 @@ public class Resources {
         System.out.println(sharedResource);
         notify();
     }
+
+    public static Runnable convertToRunnable(Runnable runnable){
+        return runnable;
+    }
 }

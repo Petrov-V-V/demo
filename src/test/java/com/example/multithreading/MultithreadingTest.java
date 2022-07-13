@@ -36,22 +36,22 @@ public class MultithreadingTest {
     @Test
     public void fourthTaskTest() {
         Resources resource = new Resources();
-        Thread thread1 = new Thread(() -> {
+        Thread thread1 = new Thread(Resources.convertToRunnable(() -> {
             for (int i = 0; i < 8; i++)
                 try {
                     resource.addResource();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-        });
-        Thread thread2 = new Thread(() -> {
+        }));
+        Thread thread2 = new Thread(Resources.convertToRunnable(() -> {
             for (int i = 0; i < 8; i++)
                 try {
                     resource.removeResource();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-        });
+        }));
         thread1.start();
         thread2.start();
     }
