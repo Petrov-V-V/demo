@@ -34,16 +34,28 @@ public class AnnotationTest {
         return map;
     }
 
-    @Test
-    public void runningMethodsInSequence() {
-        for (Method m : myAnnotationsMethods().entrySet().stream().sorted(Map.Entry.comparingByValue())
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new))
-                .keySet()) {
+    public void runningMethodsInSequence(Method method) {
+        Map<Method, Integer> map = myAnnotationsMethods();
+        Map<Method, Integer> newMap = map.entrySet().stream().sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+        for (Method m : newMap.keySet()) {
             try {
                 m.invoke(this);
+                if (m.equals(method)) {
+                    break;
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    @Test
+    public void runningMethodsInSequenceUntilParticular() {
+        try {
+            runningMethodsInSequence(this.getClass().getDeclaredMethod("thirdMethod"));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
