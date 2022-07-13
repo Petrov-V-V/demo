@@ -14,10 +14,8 @@ public class MultithreadingTest {
     @Test
     public void secondTaskTest() throws Exception {
         Thread thread1 = new Thread(() -> System.out.println("thread"));
-        Thread thread2 = new Thread(() -> System.out.println("main thread"));
         thread1.start();
         thread1.join();
-        thread2.start();
     }
 
     @Test
@@ -37,20 +35,18 @@ public class MultithreadingTest {
     public void fourthTaskTest() {
         Resources resource = new Resources();
         Thread thread1 = new Thread(Resources.convertToRunnable(() -> {
-            for (int i = 0; i < 8; i++)
-                try {
-                    resource.addResource();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            try {
+                resource.addResource();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }));
         Thread thread2 = new Thread(Resources.convertToRunnable(() -> {
-            for (int i = 0; i < 8; i++)
-                try {
-                    resource.removeResource();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            try {
+                resource.removeResource();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }));
         thread1.start();
         thread2.start();
@@ -82,7 +78,8 @@ public class MultithreadingTest {
     @Test
     public void sixthTaskTest() throws Exception {
         Thread thread = new Thread(() -> {
-            while (!Thread.currentThread().isInterrupted()) {}
+            while (!Thread.currentThread().isInterrupted()) {
+            }
         });
         thread.start();
         Thread.sleep(5000);
